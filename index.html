@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FoodExpress</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="customer.html"><i class="fas fa-users"></i> Customers</a></li>
+                    <li><a href="restaurant.html"><i class="fas fa-utensils"></i> Restaurants</a></li>
+                    <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Delicious Food Delivered to Your Doorstep</h2>
+            <p>Order from your favorite restaurants with just a few clicks</p>
+            <button class="btn" id="orderNowBtn">Order Now</button>
+        </section>
+
+        <section class="restaurants">
+            <h2>Featured Restaurants</h2>
+            <div class="restaurant-grid" id="restaurantGrid">
+                <!-- Restaurants will be loaded here via JavaScript -->
+            </div>
+        </section>
+
+        <section class="popular-items">
+            <h2>Popular Menu Items</h2>
+            <div class="food-grid" id="foodGrid">
+                <!-- Food items will be loaded here via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 FoodExpress Delivery System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress - Customers</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FoodExpress</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="customer.html" class="active"><i class="fas fa-users"></i> Customers</a></li>
+                    <li><a href="restaurant.html"><i class="fas fa-utensils"></i> Restaurants</a></li>
+                    <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="customer-management">
+            <div class="section-header">
+                <h2>Customer Management</h2>
+                <button class="btn" id="addCustomerBtn"><i class="fas fa-plus"></i> Add Customer</button>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="customerSearch" placeholder="Search customers...">
+                <button class="btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="table-container">
+                <table id="customerTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Customers will be loaded here via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add Customer Modal -->
+    <div class="modal" id="customerModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modalTitle">Add New Customer</h3>
+            <form id="customerForm">
+                <input type="hidden" id="customerId">
+                <div class="form-group">
+                    <label for="customerName">Name:</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerContact">Contact:</label>
+                    <input type="text" id="customerContact" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">Email:</label>
+                    <input type="email" id="customerEmail" required>
+                </div>
+                <button type="submit" class="btn">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 FoodExpress Delivery System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress - Restaurants</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FoodExpress</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="customer.html"><i class="fas fa-users"></i> Customers</a></li>
+                    <li><a href="restaurant.html" class="active"><i class="fas fa-utensils"></i> Restaurants</a></li>
+                    <li><a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="restaurant-management">
+            <div class="section-header">
+                <h2>Restaurant Management</h2>
+                <button class="btn" id="addRestaurantBtn"><i class="fas fa-plus"></i> Add Restaurant</button>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="restaurantSearch" placeholder="Search restaurants...">
+                <button class="btn"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="table-container">
+                <table id="restaurantTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Rating</th>
+                            <th>Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Restaurants will be loaded here via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="menu-management">
+            <h2>Menu Items</h2>
+            <div class="filter-options">
+                <select id="restaurantFilter">
+                    <option value="">All Restaurants</option>
+                    <!-- Restaurant options will be added via JavaScript -->
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table id="menuTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Restaurant</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Menu items will be loaded here via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add Restaurant Modal -->
+    <div class="modal" id="restaurantModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="restaurantModalTitle">Add New Restaurant</h3>
+            <form id="restaurantForm">
+                <input type="hidden" id="restaurantId">
+                <div class="form-group">
+                    <label for="restaurantName">Name:</label>
+                    <input type="text" id="restaurantName" required>
+                </div>
+                <div class="form-group">
+                    <label for="restaurantRating">Rating:</label>
+                    <input type="number" id="restaurantRating" min="1" max="5" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="restaurantAddress">Address:</label>
+                    <textarea id="restaurantAddress" required></textarea>
+                </div>
+                <button type="submit" class="btn">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Menu Item Modal -->
+    <div class="modal" id="menuItemModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="menuItemModalTitle">Add New Menu Item</h3>
+            <form id="menuItemForm">
+                <input type="hidden" id="menuItemId">
+                <div class="form-group">
+                    <label for="menuItemName">Name:</label>
+                    <input type="text" id="menuItemName" required>
+                </div>
+                <div class="form-group">
+                    <label for="menuItemDescription">Description:</label>
+                    <textarea id="menuItemDescription"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="menuItemPrice">Price:</label>
+                    <input type="number" id="menuItemPrice" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="menuItemRestaurant">Restaurant:</label>
+                    <select id="menuItemRestaurant" required>
+                        <!-- Options will be added via JavaScript -->
+                    </select>
+                </div>
+                <button type="submit" class="btn">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 FoodExpress Delivery System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress - Orders</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FoodExpress</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="customer.html"><i class="fas fa-users"></i> Customers</a></li>
+                    <li><a href="restaurant.html"><i class="fas fa-utensils"></i> Restaurants</a></li>
+                    <li><a href="orders.html" class="active"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="order-management">
+            <div class="section-header">
+                <h2>Order Management</h2>
+                <button class="btn" id="addOrderBtn"><i class="fas fa-plus"></i> Add Order</button>
+            </div>
+
+            <div class="filter-options">
+                <select id="orderStatusFilter">
+                    <option value="">All Statuses</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Processing">Processing</option>
+                    <option value="Delivered">Delivered</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+                <input type="date" id="orderDateFilter">
+                <button class="btn" id="applyFilterBtn">Apply Filters</button>
+                <button class="btn" id="resetFilterBtn">Reset</button>
+            </div>
+
+            <div class="table-container">
+                <table id="orderTable">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Orders will be loaded here via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="order-details" id="orderDetailsSection" style="display: none;">
+            <h2>Order Details</h2>
+            <div class="order-info">
+                <div class="info-item">
+                    <span class="info-label">Order ID:</span>
+                    <span id="detailOrderId"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Customer:</span>
+                    <span id="detailCustomer"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Date:</span>
+                    <span id="detailDate"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Status:</span>
+                    <span id="detailStatus"></span>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="orderItemsTable">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Restaurant</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Order items will be loaded here via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="order-summary">
+                <div class="summary-item">
+                    <span class="summary-label">Subtotal:</span>
+                    <span id="subtotalAmount"></span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Delivery Fee:</span>
+                    <span id="deliveryFee"></span>
+                </div>
+                <div class="summary-item total">
+                    <span class="summary-label">Total:</span>
+                    <span id="totalAmount"></span>
+                </div>
+            </div>
+
+            <div class="payment-delivery-info">
+                <div class="payment-info">
+                    <h3>Payment Information</h3>
+                    <div class="info-item">
+                        <span class="info-label">Method:</span>
+                        <span id="paymentMethod"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Status:</span>
+                        <span id="paymentStatus"></span>
+                    </div>
+                </div>
+
+                <div class="delivery-info">
+                    <h3>Delivery Information</h3>
+                    <div class="info-item">
+                        <span class="info-label">Status:</span>
+                        <span id="deliveryStatus"></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Estimated Delivery:</span>
+                        <span id="deliveryTime"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn" id="updateStatusBtn">Update Status</button>
+                <button class="btn" id="printInvoiceBtn">Print Invoice</button>
+                <button class="btn" id="backToListBtn">Back to List</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="orderModalTitle">Create New Order</h3>
+            <form id="orderForm">
+                <input type="hidden" id="orderId">
+                <div class="form-group">
+                    <label for="orderCustomer">Customer:</label>
+                    <select id="orderCustomer" required>
+                        <!-- Customer options will be added via JavaScript -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Select Items:</label>
+                    <div class="menu-selection">
+                        <div class="restaurant-filter">
+                            <label for="orderRestaurantFilter">Filter by Restaurant:</label>
+                            <select id="orderRestaurantFilter">
+                                <option value="">All Restaurants</option>
+                                <!-- Restaurant options will be added via JavaScript -->
+                            </select>
+                        </div>
+                        <div class="menu-items-container" id="menuItemsContainer">
+                            <!-- Menu items will be loaded here via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="selected-items" id="selectedItems">
+                    <h4>Selected Items</h4>
+                    <div class="selected-items-list" id="selectedItemsList">
+                        <!-- Selected items will be shown here -->
+                    </div>
+                    <div class="order-total">
+                        <span>Total: $</span>
+                        <span id="orderTotalAmount">0.00</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="orderStatus">Status:</label>
+                    <select id="orderStatus" required>
+                        <option value="Pending">Pending</option>
+                        <option value="Processing">Processing</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="paymentMethod">Payment Method:</label>
+                    <select id="paymentMethodSelect" required>
+                        <option value="Cash">Cash</option>
+                        <option value="Card">Card</option>
+                        <option value="Online">Online</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Status Update Modal -->
+    <div class="modal" id="statusModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Update Order Status</h3>
+            <form id="statusForm">
+                <input type="hidden" id="statusOrderId">
+                <div class="form-group">
+                    <label for="newOrderStatus">New Status:</label>
+                    <select id="newOrderStatus" required>
+                        <option value="Pending">Pending</option>
+                        <option value="Processing">Processing</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="paymentStatusGroup" style="display: none;">
+                    <label for="newPaymentStatus">Payment Status:</label>
+                    <select id="newPaymentStatus">
+                        <option value="Paid">Paid</option>
+                        <option value="Pending">Pending</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="deliveryStatusGroup" style="display: none;">
+                    <label for="newDeliveryStatus">Delivery Status:</label>
+                    <select id="newDeliveryStatus">
+                        <option value="Dispatched">Dispatched</option>
+                        <option value="In Transit">In Transit</option>
+                        <option value="Delivered">Delivered</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 FoodExpress Delivery System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
